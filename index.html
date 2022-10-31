@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+
+
+    <!-- Font Awesome -->
+    <link type="text/css" href="./vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+    <!-- Pixel CSS -->
+    <link type="text/css" href="./minified_style.css" rel="stylesheet">
+
+
+    <style>
+        /* ac-clear and plus-minus */
+        .ac-clear, .plus-minus {
+            font: 1rem !important;
+        }
+
+        div >div.btn {
+            padding: 0.4rem !important;
+        }
+
+        /* media query for screens with width smaller than 505 */
+        @media screen and (max-width: 505px) {
+            
+            div >div.btn {
+                padding: 0.4rem !important;
+            }
+            .plus-minus {
+                font-size: 0.8rem !important;
+
+                /* place text vertically in the middle of the button */
+                line-height: 1.6rem !important;
+
+                width: 100%;
+                height: 100%;
+            }
+        }
+         
+
+        div.alert{
+            overflow-y: auto;
+        }
+        .result {
+            white-space: nowrap;
+        }
+
+        div.main{
+            /* vertically center */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 95vh;
+            margin: 0;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- calculator -->
+    <div class="row justify-content-center small main">
+        <div class="col-10 col-md-8 col-lg-5">
+            <div class="card bg-primary shadow-soft border-light rounded">
+                <!-- result screen -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 ">
+                            <!-- shadow inside -->
+                            <div class="alert alert-secondary shadow-inset " role="alert">
+                                <!-- <input type="text" class="result form-control h1" id="result" disabled value = "0"> -->
+                                <span class="result alert-inner--text h1" >0</span>
+                            </div>
+
+                            <!-- result screen for showing result -->
+                            <!-- disabled input -->
+                            <!-- <input type="text" class="result form-control" id="result" disabled value = "0"> -->
+
+
+                        </div>
+                    </div>
+                    <!-- number pad -->
+                    <div class="row p-3">
+                        <div class="col-12">
+                            <div class="row mt-1">
+                                <div class="col-3 p-1">
+                                    <div type="button" class="ac-clear btn btn-primary btn-lg btn-block rounded-pill font-small">C
+                                    </div>
+                                </div>
+                                <div class="col-3 p-1">
+                                    <div type="button" class="plus-minus btn btn-primary btn-lg btn-block rounded-pill">+/-</div>
+                                </div>
+                                <div class="col-3 p-1">
+                                    <div type="button" class="percent btn btn-primary btn-lg btn-block  rounded-pill">%
+                                    </div>
+                                </div>
+                                
+                                <div class="col-3 p-1">
+                                    <div type="button"
+                                        class=" operator divide btn btn-primary btn-lg btn-block text-danger rounded-pill">/</div>
+                                </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-3 p-1">
+                                    <div type="button" class="number btn btn-primary btn-lg btn-block rounded-pill ">7
+                                    </div>
+                                </div>
+                                <div class="col-3 p-1">
+                                    <div type="button" class="number btn btn-primary btn-lg btn-block rounded-pill">8
+                                    </div>
+                                </div>
+                                <div class="col-3 p-1">
+                                    <div type="button" class="number btn btn-primary btn-lg btn-block rounded-pill">9
+                                    </div>
+                                </div>
+                                
+                                <div class="col-3 p-1">
+                                    <!-- add multiply icon using font awesome -->
+                                    <div type="button"
+                                        class="operator multiply text-danger btn btn-primary btn-lg btn-block rounded-pill">x</div>
+                                </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-3 p-1">
+                                    <div type="button" class="number btn btn-primary btn-lg btn-block rounded-pill">4
+                                    </div>
+                                </div>
+                                <div class="col-3 p-1">
+                                    <div type="button" class="number btn btn-primary btn-lg btn-block rounded-pill">5
+                                    </div>
+                                </div>
+                                <div class="col-3 p-1">
+                                    <div type="button" class="number btn btn-primary btn-lg btn-block rounded-pill">6
+                                    </div>
+                                </div>
+                                <div class="col-3 p-1">
+                                    <div type="button"
+                                        class="operator  minus btn btn-primary btn-lg text-danger btn-block rounded-pill">-</div>
+                                </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-3 p-1">
+                                    <div type="button" class="number btn btn-primary btn-lg btn-block rounded-pill">1
+                                    </div>
+                                </div>
+                                <div class="col-3 p-1">
+                                    <div type="button" class="number btn btn-primary btn-lg btn-block rounded-pill">2
+                                    </div>
+                                </div>
+                                <div class="col-3 p-1">
+                                    <div type="button" class="number btn btn-primary btn-lg btn-block rounded-pill">3
+                                    </div>
+                                </div>
+                                
+                                <div class="col-3 p-1">
+                                    <div type="button"
+                                        class="operator plus btn btn-primary btn-lg btn-block text-danger rounded-pill">+</div>
+                                </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-6 p-1">
+                                    <div type="button"
+                                        class="number zero btn btn-primary btn-lg btn-block rounded-pill">0</div>
+                                </div>
+                                <div class="col-3 p-1">
+                                    <div type="button" class="dot btn btn-primary btn-lg btn-block rounded-pill">.</div>
+                                </div>
+                                <div class="col-3 p-1">
+                                    <div type="button" class="equal btn btn-primary text-danger btn-lg btn-block rounded-pill">=
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+    <!-- add script -->
+    <script>
+        const result = document.querySelector('.result');
+
+        // select all .number and add event
+        const numbers = document.querySelectorAll(".number");
+        numbers.forEach((number) => {
+            number.addEventListener("click", (event) => {
+                // print the innertext of the button
+                console.log(event.target.innerText);
+                // append to screen
+                if (result.innerText == 0) {
+                    result.innerText = event.target.innerText;
+                } else {
+                    result.innerText += event.target.innerText;
+                }
+            });
+        });
+
+        const four_operators = ["+", "-", "*", "/"];
+
+        // select all .operator and add event
+        const operators = document.querySelectorAll(".operator");
+        operators.forEach((operator) => {
+            operator.addEventListener("click", (event) => {
+                // print the innertext of the button
+                console.log(event.target.innerText);
+                // if result contains operator, solve it
+                if (result.innerText.includes("+") || result.innerText.includes("-") || result.innerText.includes("*") || result.innerText.includes("/")) {
+                    result.innerText = eval(result.innerText);
+                }
+                // if multiply, convert to *
+                if (event.target.innerText == "x") {
+                    result.innerText += "*";
+                } else {
+                    result.innerText += event.target.innerText;
+                }
+            });
+        });
+
+        // add event to dot
+        const dot = document.querySelector(".dot");
+        dot.addEventListener("click", (event) => {
+            // print the innertext of the button
+            console.log(event.target.innerText);
+            // append to screen
+            result.innerText += event.target.innerText;
+        });
+
+        // ac clear
+        const ac = document.querySelector(".ac-clear");
+        ac.addEventListener("click", (event) => {
+            // print the innertext of the button
+            console.log(event.target.innerText);
+            // append to screen
+            result.innerText = 0;
+        });
+
+        // plus minus
+        const plus_minus = document.querySelector(".plus-minus");
+        plus_minus.addEventListener("click", (event) => {
+            // print the innertext of the button
+            console.log(event.target.innerText);
+            // append to screen
+            result.innerText = -result.innerText;
+        });
+
+        // percent
+        const percent = document.querySelector(".percent");
+        percent.addEventListener("click", (event) => {
+
+            // print the innertext of the button
+            console.log(event.target.innerText);
+            // append to screen
+            result.innerText = eval(result.innerText) / 100;
+        });
+
+
+        // equal button
+        const equal = document.querySelector(".equal");
+        equal.addEventListener("click", (event) => {
+            // print the innertext of the button
+            console.log(event.target.innerText);
+            // append to screen
+            result.innerText = eval(result.innerText);
+        });
+
+    </script>
+
+
+</body>
+
+</html>
